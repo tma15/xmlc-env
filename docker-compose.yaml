@@ -1,0 +1,10 @@
+version: "3.10"
+
+services:
+  prime:
+    build:
+      context: ./prime
+    volumes:
+      - ./shared:/data
+    working_dir: /app
+    command: python prime/prime/runner.py -h
