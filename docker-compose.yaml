@@ -1,10 +1,11 @@
-version: "3.10"
-
 services:
   prime:
     build:
       context: ./prime
     volumes:
       - ./shared:/data
-    working_dir: /app
-    command: python prime/prime/runner.py -h
+    working_dir: /app/Workspace/programs/prime/prime
+    command: python3 runner.py PRIME /app/Workspace LF-AmazonTitles-131K 0 22
+    runtime: nvidia
+    environment:
+      -  NVIDIA_VISIBLE_DEVICES=all
